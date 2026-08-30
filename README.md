@@ -7,7 +7,8 @@ Este proyecto propone desarrollar un programa que ayude a los estudiantes a pode
  
  El programa recibirá el número de materias del alumno, sus nombres, su dificultad y cuantás horas y días desea estudiar por semana. Con esos datos este proyecto desplegará que días y que horas se tiene que estudiar cada materia.
   **Instrucciones**
-Se adjunta el archivo con el respectivo pseudocódigo
+Se adjunta el archivo con el respectivo pseudocódigo:
+https://github.com/AndreaP17200810/Proyecto-de-programaci-n/blob/main/Pseudoc%C3%B3digo%20Avance%201.pdf
 
 
 
