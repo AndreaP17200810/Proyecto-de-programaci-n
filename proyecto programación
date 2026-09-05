@@ -1,0 +1,40 @@
+materias = int(input("Ingrese su número de materias: "))
+nombrematerias = []
+dificultades = []
+nombredias = []
+i=1 
+x=0 #Una variable al azar por que si no me marcaba error por que no habia nada dentro del if de la línea 22
+t=0 #La variable donde se iran poniendo cuantas horas le estoy poniendo a ese día.
+
+
+while i <= materias:
+    nombre = input(f"Ingrese el nombre de la materia({i}): ")
+    nombrematerias.append(nombre)
+    dificultad = input( f"Qué tan difícil es la materia {nombre}? (1 si le cuesta poco, 2 si le cuesta mucho, 3 si le cuesta demasiado): ")
+    dificultades.append(dificultad)
+    i+= 1
+
+
+horas=int(input("Ingrese el número de horas que puede dedicar a la semana: "))
+dias=int(input("Ingrese el número de días que puede dedicar a la semana: "))
+nombredias=input("Escriba los días que puede dedicar a la semana separados por comas: ").split(",") 
+nombredias = [dia.strip() for dia in nombredias]  
+
+
+horas_por_dia= horas//dias
+if horas_por_dia % dias !=0:
+    #Le pongo el residuo que seria como una hora extra a un día (aún no se hacer eso)
+    x+=1 
+
+horas_por_materia = horas// materias
+
+
+if horas_por_materia % materias !=0:
+    #Le pongo el residuo a la materia que le cueste más (aún no se hacer eso)
+    materia_dificil=+1
+    #si no hay residuo le quito una hora a la que le cueste menos y se la pongo a la que le cueste más (aún no se hacer eso)
+
+
+#Ahora tengo que poner las materias y sus horas en los respectivos días que el usuario me dio.
+ #while t<=horas_por_dia:
+
