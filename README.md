@@ -10,5 +10,9 @@ Este proyecto propone desarrollar un programa que ayude a los estudiantes a pode
 Se adjunta el archivo con el respectivo pseudocódigo:
 https://github.com/AndreaP17200810/Proyecto-de-programaci-n/blob/main/Pseudoc%C3%B3digo%20Avance%201.pdf
 
+Avance del proyecto:
+https://github.com/AndreaP17200810/Proyecto-de-programaci-n/blob/main/proyecto%20programaci%C3%B3n
+
+
 
 
