@@ -1,40 +1,87 @@
 materias = int(input("Ingrese su número de materias: "))
 nombrematerias = []
-dificultades = []
 nombredias = []
+dificil = []
+mediano = []
+facil = []
+materias_horas = []
 i=1 
-x=0 #Una variable al azar por que si no me marcaba error por que no habia nada dentro del if de la línea 22
-t=0 #La variable donde se iran poniendo cuantas horas le estoy poniendo a ese día.
+t=0
 
 
 while i <= materias:
     nombre = input(f"Ingrese el nombre de la materia({i}): ")
     nombrematerias.append(nombre)
-    dificultad = input( f"Qué tan difícil es la materia {nombre}? (1 si le cuesta poco, 2 si le cuesta mucho, 3 si le cuesta demasiado): ")
-    dificultades.append(dificultad)
+    dificultad = int(input( f"Qué tan difícil es la materia {nombre}? (1 si le cuesta poco, 2 si le cuesta mucho, 3 si le cuesta demasiado): "))
+    if dificultad==1:
+          facil.append(nombre)
+    if dificultad==2:
+          mediano.append(nombre)
+    if dificultad==3:
+          dificil.append(nombre)
+          
     i+= 1
-
-
+dias=int(input("Ingrese el número de días que puede dedicar por semana: "))
+d=1
+while d<=dias:
+    dia = input(f"Escriba el nombre del dia {d}:")
+    nombredias.append(dia)
+    d+=1
 horas=int(input("Ingrese el número de horas que puede dedicar a la semana: "))
-dias=int(input("Ingrese el número de días que puede dedicar a la semana: "))
-nombredias=input("Escriba los días que puede dedicar a la semana separados por comas: ").split(",") 
-nombredias = [dia.strip() for dia in nombredias]  
+
+ 
+
+def horas_por_dia(horas,dias):
+    horas_por_dia= horas // dias
+    return horas_por_dia
+
+while t <= dias:
+    if t==1:
+        dia1=horas_por_dia(horas,dias)
+    if t==2:
+            dia2=horas_por_dia(horas,dias)
+    if t==3:
+            dia3=horas_por_dia(horas,dias)
+    if t==4:
+            dia4=horas_por_dia(horas,dias)
+    if t==5:
+            dia5=horas_por_dia(horas,dias)
+    if t==6:
+            dia6=horas_por_dia(horas,dias)
+    
+    if t==7:
+            dia7=horas_por_dia(horas,dias)
+    t+=1
 
 
-horas_por_dia= horas//dias
-if horas_por_dia % dias !=0:
-    #Le pongo el residuo que seria como una hora extra a un día (aún no se hacer eso)
-    x+=1 
+if horas % dias !=0:
+    dia1=horas_por_dia(horas,dias)+ horas % dias
+    
+def horas_por_materia(horas,materias):
+    horas_por_materia = horas // materias
+    return horas_por_materia
 
-horas_por_materia = horas// materias
+while horas>0:
+    for nombre in dificil:
+            materias_horas.append([nombre,3])
+            horas=-3
+    for nombre in mediano:
+          materias_horas.append([nombre,2])
+          horas=-1
+    for nombre in facil:
+          materias_horas.append([nombre,1])
+          horas=-1
+#Aqui ya estoy empezando a asignar horas, esta parte asignará cierto número
+# de horas de cajón ahora me falta que el programa reparta las que le sobren. 
+    
+      
 
+                                                                                                                                                        
 
-if horas_por_materia % materias !=0:
-    #Le pongo el residuo a la materia que le cueste más (aún no se hacer eso)
-    materia_dificil=+1
-    #si no hay residuo le quito una hora a la que le cueste menos y se la pongo a la que le cueste más (aún no se hacer eso)
+    
 
 
 #Ahora tengo que poner las materias y sus horas en los respectivos días que el usuario me dio.
  #while t<=horas_por_dia:
+print(facil,mediano,dificil,nombrematerias,nombredias,materias_horas)
 
