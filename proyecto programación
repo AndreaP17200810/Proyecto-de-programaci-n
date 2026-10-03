@@ -1,4 +1,4 @@
-materias = int(input("Ingrese su número de materias: "))
+materias = int(input("Ingrese su numero de materias: "))
 nombrematerias = []
 nombredias = []
 dificil = []
@@ -12,7 +12,7 @@ t=0
 while i <= materias:
     nombre = input(f"Ingrese el nombre de la materia({i}): ")
     nombrematerias.append(nombre)
-    dificultad = int(input( f"Qué tan difícil es la materia {nombre}? (1 si le cuesta poco, 2 si le cuesta mucho, 3 si le cuesta demasiado): "))
+    dificultad = int(input( f"Que tan dificil es la materia {nombre}? (1 si le cuesta poco, 2 si le cuesta mucho, 3 si le cuesta demasiado): "))
     if dificultad==1:
           facil.append(nombre)
     if dificultad==2:
@@ -21,16 +21,16 @@ while i <= materias:
           dificil.append(nombre)
           
     i+= 1
-dias=int(input("Ingrese el número de días que puede dedicar por semana: "))
+dias=int(input("Ingrese el numero de dias que puede dedicar por semana: "))
 d=1
 while d<=dias:
     dia = input(f"Escriba el nombre del dia {d}:")
     nombredias.append(dia)
     d+=1
-horas=int(input("Ingrese el número de horas que puede dedicar a la semana: "))
+horas=int(input("Ingrese el numero de horas que puede dedicar a la semana: "))
 
  
-
+#Mi funcion esta obteniendo cuantas horas vamos a dedicar por dia 
 def horas_por_dia(horas,dias):
     horas_por_dia= horas // dias
     return horas_por_dia
@@ -56,23 +56,115 @@ while t <= dias:
 
 if horas % dias !=0:
     dia1=horas_por_dia(horas,dias)+ horas % dias
-    
-def horas_por_materia(horas,materias):
-    horas_por_materia = horas // materias
-    return horas_por_materia
+dif,med,fac=0,0,0
+for nombre  in dificil:
+    dif+=1
+for nombre in mediano:
+    med+=1
+for nombre in facil:
+    fac+=1
 
-while horas>0:
+#Para el programa yo realice tres niveles
+#Primer nivel= vamos a asignar de ley 3 horas a las dif, 2 a las med, y 1 a las fáciles.(y luego se reparte el sobrante)
+#Segundo nivel= Si no hay suficientes para hacer eso entonces va a ser 2 a las dif, 1 a las med, y 0 a las fac(y luego se reparte el sobrante de horas)
+#Tercer nivel= 1 a las dif, 1 a las med y se reparte el sobrante 
+#Si de plano son muy pocas horas se van a ir repartiendo empezando por las dificiles
+
+horas_ideales=(dif*3)+(med*2)+(fac)
+if horas>=horas_ideales:
     for nombre in dificil:
-            materias_horas.append([nombre,3])
-            horas=-3
+        materias_horas.extend([nombre]*3)
+        horas-=3
     for nombre in mediano:
-          materias_horas.append([nombre,2])
-          horas=-1
+        materias_horas.extend([nombre]*2)
+        horas-=2
     for nombre in facil:
-          materias_horas.append([nombre,1])
-          horas=-1
-#Aqui ya estoy empezando a asignar horas, esta parte asignará cierto número
-# de horas de cajón ahora me falta que el programa reparta las que le sobren. 
+        materias_horas.append(nombre)
+        horas-=1
+    while horas>0:
+            for nombre in dificil:
+                if horas>0:
+                    materias_horas.append(nombre)
+                    horas-=1
+            for nombre in mediano:
+                if horas>0:
+                    materias_horas.append(nombre)
+                    horas-=1
+            for nombre in facil:
+                if horas>0:
+                    materias_horas.append(nombre)
+                    horas-=1
+    
+else:
+    horas_ideales=(dif*2)+med
+    if horas>=horas_ideales:
+        for nombre in dificil:
+            materias_horas.extend([nombre]*2)
+            horas-=2
+        for nombre in mediano:
+            materias_horas.append(nombre)
+            horas-=1
+    while horas>0:
+        for nombre in dificil:
+            if horas>0:
+                materias_horas.append(nombre)
+                horas-=1
+        for nombre in mediano:
+            if horas>0:
+                materias_horas.append(nombre)
+                horas-=1
+        for nombre in facil:
+            if horas>0:
+                materias_horas.append(nombre)
+                horas-=1
+
+
+        
+    else:
+        horas_ideales=dif+med
+        if horas>horas_ideales:
+            for nombre in dificil:
+                materias_horas.append(nombre)
+                horas-=1
+            for nombre in mediano:
+                materias_horas.append(nombre)
+                horas-=1
+        while horas>0:
+                for nombre in dificil:
+                    if horas>0:
+                        materias_horas.append(nombre)
+                        horas-=1
+                for nombre in mediano:
+                    if horas>0:
+                        materias_horas.append(nombre)
+                        horas-=1
+                for nombre in facil:
+                    if horas>0:
+                        materias_horas.append(nombre)
+                        horas-=1
+        
+        else:
+            while horas>0:
+                    for nombre in dificil:
+                        if horas>0:
+                            materias_horas.append(nombre)
+                            horas-=1
+                    for nombre in mediano:
+                        if horas>0:
+                            materias_horas.append(nombre)
+                            horas-=1
+                    for nombre in facil:
+                        if horas>0:
+                            materias_horas.append(nombre)
+                            horas-=1
+            
+    
+    
+
+
+     
+#Aqui ya estoy empezando a asignar horas, esta parte asignara cierto numero
+# de horas de cajon ahora me falta que el programa reparta las que le sobren. 
     
       
 
