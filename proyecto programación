@@ -158,22 +158,6 @@ else:
                             materias_horas.append(nombre)
                             horas-=1
             
-    
-    
-
-
-     
-#Aqui ya estoy empezando a asignar horas, esta parte asignara cierto numero
-# de horas de cajon ahora me falta que el programa reparta las que le sobren. 
-    
-      
-
-                                                                                                                                                        
-
-    
-
-
-#Ahora tengo que poner las materias y sus horas en los respectivos días que el usuario me dio.
- #while t<=horas_por_dia:
+#Ahora tengo que poner las materias y sus horas en los respectivos días que el usuario me dio#while t<=horas_por_dia:
 print(facil,mediano,dificil,nombrematerias,nombredias,materias_horas)
 
