@@ -9,6 +9,7 @@ i=1
 t=0
 
 
+
 while i <= materias:
     nombre = input(f"Ingrese el nombre de la materia({i}): ")
     nombrematerias.append(nombre)
@@ -28,30 +29,14 @@ while d<=dias:
     nombredias.append(dia)
     d+=1
 horas=int(input("Ingrese el numero de horas que puede dedicar a la semana: "))
-
+horas_totales=horas
  
 #Mi funcion esta obteniendo cuantas horas vamos a dedicar por dia 
 def horas_por_dia(horas,dias):
     horas_por_dia= horas // dias
     return horas_por_dia
 
-while t <= dias:
-    if t==1:
-        dia1=horas_por_dia(horas,dias)
-    if t==2:
-            dia2=horas_por_dia(horas,dias)
-    if t==3:
-            dia3=horas_por_dia(horas,dias)
-    if t==4:
-            dia4=horas_por_dia(horas,dias)
-    if t==5:
-            dia5=horas_por_dia(horas,dias)
-    if t==6:
-            dia6=horas_por_dia(horas,dias)
-    
-    if t==7:
-            dia7=horas_por_dia(horas,dias)
-    t+=1
+
 
 
 if horas % dias !=0:
@@ -158,6 +143,32 @@ else:
                             materias_horas.append(nombre)
                             horas-=1
             
-#Ahora tengo que poner las materias y sus horas en los respectivos días que el usuario me dio#while t<=horas_por_dia:
-print(facil,mediano,dificil,nombrematerias,nombredias,materias_horas)
 
+print(facil,mediano,dificil,nombrematerias,nombredias,materias_horas)
+h=1
+
+   
+##El codigo tiene varios errores en el ultimo bloque a la hora de que estoy intetando imprimir los días con las materias que
+##se tienen que estudiar ese dia 
+
+h=1
+conta=0
+
+for dia in nombredias:
+    print(dia)
+    d=1
+
+    while d<=dia1 and conta<len(materias_horas):
+        print(materias_horas[conta])
+        conta+=1
+        d+=1
+
+    dia1=horas_por_dia(horas_totales,dias)
+    nombredias.pop(0)
+
+    for dia in nombredias:
+        print(dia)
+        while d<horas_por_dia(horas_totales,dias) and conta<len(materias_horas):
+            print(materias_horas[conta])
+            conta+=1
+            d+=1
