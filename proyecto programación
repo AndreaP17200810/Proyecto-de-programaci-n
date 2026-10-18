@@ -32,8 +32,8 @@ horas=int(input("Ingrese el numero de horas que puede dedicar a la semana: "))
 horas_totales=horas
  
 #Mi funcion esta obteniendo cuantas horas vamos a dedicar por dia 
-def horas_por_dia(horas,dias):
-    horas_por_dia= horas // dias
+def horas_por_dia(horas_totales,dias):
+    horas_por_dia= horas_totales // dias
     return horas_por_dia
 
 
@@ -41,6 +41,8 @@ def horas_por_dia(horas,dias):
 
 if horas % dias !=0:
     dia1=horas_por_dia(horas,dias)+ horas % dias
+else:
+    dia1=horas_por_dia(horas,dias)
 dif,med,fac=0,0,0
 for nombre  in dificil:
     dif+=1
@@ -145,30 +147,38 @@ else:
             
 
 print(facil,mediano,dificil,nombrematerias,nombredias,materias_horas)
-h=1
+
 
    
 ##El codigo tiene varios errores en el ultimo bloque a la hora de que estoy intetando imprimir los días con las materias que
 ##se tienen que estudiar ese dia 
 
-h=1
-conta=0
+print("=========================")
+print("  Mi horario de estudio")
+print("=========================")
 
+
+conta=0
+numeracion=1
+
+print(nombredias[0])
+d=1
+while conta<dia1 and conta<len(materias_horas):
+        print(f"{numeracion}. {materias_horas[conta]}")
+        conta+=1
+        numeracion+=1
+nombredias.pop(0)
+d=0
+numeracion=1
+print()
 for dia in nombredias:
     print(dia)
-    d=1
-
-    while d<=dia1 and conta<len(materias_horas):
-        print(materias_horas[conta])
+    while d<horas_por_dia(horas_totales,dias) and conta<len(materias_horas):
+        print(f"{numeracion}. {materias_horas[conta]}")
         conta+=1
         d+=1
-
-    dia1=horas_por_dia(horas_totales,dias)
-    nombredias.pop(0)
-
-    for dia in nombredias:
-        print(dia)
-        while d<horas_por_dia(horas_totales,dias) and conta<len(materias_horas):
-            print(materias_horas[conta])
-            conta+=1
-            d+=1
+        numeracion+=1
+        if d==horas_por_dia(horas_totales,dias):
+            print()
+            numeracion=1
+    d=0
