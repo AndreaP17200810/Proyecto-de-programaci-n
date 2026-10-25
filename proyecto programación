@@ -1,3 +1,4 @@
+
 materias = int(input("Ingrese su numero de materias: "))
 nombrematerias = []
 nombredias = []
@@ -5,6 +6,7 @@ dificil = []
 mediano = []
 facil = []
 materias_horas = []
+horario=[]
 i=1 
 t=0
 
@@ -160,25 +162,32 @@ print("=========================")
 
 conta=0
 numeracion=1
+primdia = []
+primdia.append(nombredias[0])
 
-print(nombredias[0])
-d=1
 while conta<dia1 and conta<len(materias_horas):
-        print(f"{numeracion}. {materias_horas[conta]}")
-        conta+=1
-        numeracion+=1
+    primdia.append(f"{numeracion}. {materias_horas[conta]}")
+    conta+=1
+    numeracion+=1
+
+horario.append(primdia)
 nombredias.pop(0)
-d=0
-numeracion=1
-print()
+
 for dia in nombredias:
-    print(dia)
+    lista=[]
+    lista.append(dia)
+    d=0
+    numeracion=1
     while d<horas_por_dia(horas_totales,dias) and conta<len(materias_horas):
-        print(f"{numeracion}. {materias_horas[conta]}")
+        lista.append(f"{numeracion}. {materias_horas[conta]}")
         conta+=1
         d+=1
         numeracion+=1
-        if d==horas_por_dia(horas_totales,dias):
-            print()
-            numeracion=1
-    d=0
+    horario.append(lista)
+
+for dia in horario:
+    print(dia[0])
+    for materia in dia[1:]:
+        print(materia)
+
+    print()
