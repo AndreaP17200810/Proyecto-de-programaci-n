@@ -13,7 +13,7 @@ t=0
 
 
 while i <= materias:
-    nombre = input(f"Ingrese el nombre de la materia({i}): ")
+    nombre = input(f"Ingrese el nombre de la materia({i}): ").strip().capitalize()
     nombrematerias.append(nombre)
     dificultad = int(input( f"Que tan dificil es la materia {nombre}? (1 si le cuesta poco, 2 si le cuesta mucho, 3 si le cuesta demasiado): "))
     if dificultad==1:
@@ -27,7 +27,7 @@ while i <= materias:
 dias=int(input("Ingrese el numero de dias que puede dedicar por semana: "))
 d=1
 while d<=dias:
-    dia = input(f"Escriba el nombre del dia {d}:")
+    dia = input(f"Escriba el nombre del dia {d}:").strip().upper()
     nombredias.append(dia)
     d+=1
 horas=int(input("Ingrese el numero de horas que puede dedicar a la semana: "))
@@ -191,3 +191,10 @@ for dia in horario:
         print(materia)
 
     print()
+
+print("=========================")
+print("  Resumen de horario")
+print("=========================")
+for nombre in nombrematerias:
+    cantidad =materias_horas.count(nombre)
+    print(f"{nombre}= {cantidad} h.")
