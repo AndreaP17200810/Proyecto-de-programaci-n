@@ -198,3 +198,43 @@ print("=========================")
 for nombre in nombrematerias:
     cantidad =materias_horas.count(nombre)
     print(f"{nombre}= {cantidad} h.")
+
+
+
+
+
+
+print("¿Deseas guardar tu horario? (si/no)")
+respuesta=input()
+
+
+if respuesta=="si":
+    print("¿Cómo deseas que se llame tu horario?")
+    nombre=input()
+    archivo=open(f"{nombre}", "w",encoding="utf-8")
+
+    archivo.write("=========================\n")
+    archivo.write("  Mi horario de estudio\n")
+    archivo.write("=========================\n\n")
+
+    for dia in horario:
+        archivo.write(dia[0] + "\n")
+
+        for materia in dia[1:]:
+            archivo.write(materia + "\n")
+
+        archivo.write("\n")
+
+    archivo.write("=========================\n")
+    archivo.write("  Resumen de horario\n")
+    archivo.write("=========================\n")
+
+    for nombre in nombrematerias:
+        cantidad=materias_horas.count(nombre)
+        archivo.write(f"{nombre}= {cantidad} h.\n")
+
+    archivo.close()
+
+    print("Horario Guardado")
+else:
+    print("No te preocupes podrás seguir consultando tu horario en pantalla")
